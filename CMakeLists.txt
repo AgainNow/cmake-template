@@ -9,5 +9,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # 库编译
 
+# 引入头文件
+include_directories(include)
+
+# 引入源文件
+file(GLOB SRC_FILES "src/*.cpp")
+
 # 可执行文件编译
-add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp ${SRC_FILES})
+
+# 引入三方库
+target_link_libraries(${PROJECT_NAME} pthread)
